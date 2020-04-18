@@ -12,4 +12,10 @@ import Foundation
 protocol SwiftTestsHost {
     /// Obtain the host application's interface orientation.
     func interfaceOrientation() -> UIInterfaceOrientation
+
+    /// Get Root View Controller
+    func getRootVC() -> UIViewController
+
+    /// Dismiss modal shown over current root view controller
+    func dismissModal()
 }

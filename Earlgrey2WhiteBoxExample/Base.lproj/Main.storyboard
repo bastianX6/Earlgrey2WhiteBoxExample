@@ -17,6 +17,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GxI-sP-Nyn">
                                 <rect key="frame" x="126" y="433" width="162" height="30"/>
+                                <accessibility key="accessibilityConfiguration" identifier="presentModalButton"/>
                                 <state key="normal" title="Present View Controller"/>
                                 <connections>
                                     <segue destination="QjS-OC-10I" kind="presentation" id="dIv-Ty-XwF"/>
@@ -42,7 +43,20 @@
                     <view key="view" contentMode="scaleToFill" id="1QU-gH-29z">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a modal view" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tlc-qK-6Le">
+                                <rect key="frame" x="130" y="410.5" width="154" height="21"/>
+                                <accessibility key="accessibilityConfiguration" identifier="modalViewLabel"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="tlc-qK-6Le" firstAttribute="centerY" secondItem="1QU-gH-29z" secondAttribute="centerY" id="Kol-aE-ST6"/>
+                            <constraint firstItem="tlc-qK-6Le" firstAttribute="centerX" secondItem="1QU-gH-29z" secondAttribute="centerX" id="aLL-NP-xXC"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="nwJ-Eo-YWM"/>
                     </view>
                     <navigationItem key="navigationItem" title="Presented view controller" id="JMb-2V-boZ">

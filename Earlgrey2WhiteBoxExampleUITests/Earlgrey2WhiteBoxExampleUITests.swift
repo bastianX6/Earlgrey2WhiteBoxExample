@@ -25,8 +25,34 @@ class Earlgrey2WhiteBoxExampleUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testInterfaceOrientation() {
-        XCTAssertEqual(host.interfaceOrientation(), UIInterfaceOrientation.portrait)
+    func testRotationToPortrait() {
+        XCUIDevice.shared.orientation = .portrait
+        XCTAssertEqual(host.interfaceOrientation().isPortrait, true)
+    }
+
+    func testRotationToLandscape() {
+        XCUIDevice.shared.orientation = .landscapeRight
+        XCTAssertEqual(host.interfaceOrientation().isLandscape, true)
+    }
+
+    func testDismissingModal() {
+        let showModalButton = EarlGrey.selectElement(with: grey_accessibilityID("presentModalButton"))
+        let modalLabel = EarlGrey.selectElement(with: grey_accessibilityID("modalViewLabel"))
+
+        // show modal by tapping on the button that triggers it
+        showModalButton.perform(grey_tap())
+
+        // Verify modal launch button is not displayed
+        showModalButton.assert(grey_notVisible())
+
+        // Verify modal label is displayed
+        modalLabel.assert(grey_sufficientlyVisible())
+
+        // Use the white-box testing call to programatically dismiss the modal
+        host.dismissModal()
+
+        // Verify that the modal is dismissed and that the original View Controller is shown
+        showModalButton.assert(grey_sufficientlyVisible())
     }
 }
 
