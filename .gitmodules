@@ -1,0 +1,4 @@
+[submodule "EarlGrey"]
+	path = EarlGrey
+	url = https://github.com/google/EarlGrey.git
+	branch = earlgrey2
